@@ -36,16 +36,6 @@ public class BinarySearchTree extends AbstractStructure implements OrderedStruct
       this.count = 0;
    }
 
-   @Override
-   public void add(Object var1) {
-
-   }
-
-   @Override
-   public Object remove(Object var1) {
-      return null;
-   }
-
    public int size() {
       return this.count;
    }

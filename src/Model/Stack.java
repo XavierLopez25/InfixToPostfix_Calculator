@@ -1,9 +1,8 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class StackUsingArrayList<T> extends AbstractStack{
+public class Stack<T> implements IStack<T>{
     /**
      *
      */
@@ -12,12 +11,12 @@ public class StackUsingArrayList<T> extends AbstractStack{
     /**
      *Constructor de un stack
      */
-    public StackUsingArrayList() {
+    public Stack() {
         myList = new ArrayList<T>();
     }
 
     /**
-     * Cuenta la cantidad de elementos en un StackUsingArrayList
+     * Cuenta la cantidad de elementos en un Stack
      * @return myList.size
      */
     @Override
@@ -26,7 +25,7 @@ public class StackUsingArrayList<T> extends AbstractStack{
     }
 
     /**
-     * Revisa si la StackUsingArrayList esta vacia
+     * Revisa si la Stack esta vacia
      * @return
      */
     @Override
@@ -35,16 +34,16 @@ public class StackUsingArrayList<T> extends AbstractStack{
     }
 
     /**
-     * Añade un elemento al StackUsingArrayList
+     * Añade un elemento al Stack
      * @param value
      */
     @Override
-    public void push(Object value) {
-        myList.add(0, (T) value);
+    public void push(T value) {
+        myList.add(0, value);
     }
 
     /**
-     * Retira un elemento del StackUsingArrayList
+     * Retira un elemento del Stack
      * @return
      */
     @Override
@@ -53,18 +52,12 @@ public class StackUsingArrayList<T> extends AbstractStack{
     }
 
     /**
-     * Llama al ultimo objeto ingresado al StackUsingArrayList
+     * Llama al ultimo objeto ingresado al Stack
      * @return
      */
     @Override
     public T peek() {
         return myList.get(0);
-    }
-
-    @Override
-    public String toString(){
-        Collections.reverse(myList);
-        return myList.toString();
     }
 }
 

@@ -35,9 +35,4 @@ public class ComparableEdge extends Edge implements Comparable {
       s.append(" " + this.there() + ">");
       return s.toString();
    }
-
-   @Override
-   public int compareTo(Object o) {
-      return 0;
-   }
 }

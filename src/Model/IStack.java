@@ -11,6 +11,4 @@ public interface IStack<T> {
     T pull();
 
     T peek();
-
-    String toString();
 }
