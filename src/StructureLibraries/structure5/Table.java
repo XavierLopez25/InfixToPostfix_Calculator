@@ -54,6 +54,11 @@ public class Table extends AbstractMap implements OrderedMap {
       return this.data.isEmpty();
    }
 
+   @Override
+   public boolean containsKey(Object var1) {
+      return false;
+   }
+
    public void clear() {
       this.data.clear();
    }
@@ -84,6 +89,21 @@ public class Table extends AbstractMap implements OrderedMap {
       } while(nextValue == null || !nextValue.equals(value));
 
       return true;
+   }
+
+   @Override
+   public Object get(Object var1) {
+      return null;
+   }
+
+   @Override
+   public Object put(Object var1, Object var2) {
+      return null;
+   }
+
+   @Override
+   public Object remove(Object var1) {
+      return null;
    }
 
    public Object remove(Comparable key) {

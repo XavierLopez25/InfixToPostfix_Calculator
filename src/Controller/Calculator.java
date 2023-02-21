@@ -1,73 +1,55 @@
 package Controller;
 
+import Model.IStack;
 import Model.PostfixCalculator;
-import Model.Stack;
-
-import java.util.ArrayList;
+import Model.StackUsingArrayList;
 
 public class Calculator {
-    /**
-     *
-     */
-    private static Stack<Integer> stackuwu_nia;
 
     static PostfixCalculator pc = new PostfixCalculator();
 
     /**
      * Constructor
      */
-    public Calculator(){
-        stackuwu_nia = new Stack<Integer>();
-    }
 
-    /**
-     * Realiza las operaciones segun los numeros en el Stack
-     * @param operator
-     * @param A
-     * @param B
-     */
-    public static void getValue(String operator, int A, int B){
-        switch(operator){
-            case "+":
-                stackuwu_nia.push(pc.suma(A, B));
-                break;
 
-            case "-":
-                stackuwu_nia.push(pc.resta(A, B));
-                break;
-
-            case "*":
-                stackuwu_nia.push(pc.multiplicacion(A, B));
-                break;
-
-            case "/":
-                stackuwu_nia.push(pc.division(A, B));
-                break;
-        }
-    }
-
-    /**
-     * Realiza e introduce la expresion postfix al Stack, haciendo las operaciones necesarias
-     * @param postfix
-     * @return
-     */
-    public static int mainOperation(String postfix){
-        ArrayList<String> data = pc.getItems(postfix);
-        for (String datum : data) {
-            if (!pc.isOperator(datum)) {
-                stackuwu_nia.push(Integer.valueOf(datum));
+    public int postfixEvaluation(String postfix, IStack<Integer> stack){
+        int  result = 0;
+        //step 1
+        postfix = postfix.concat(String.valueOf(')'));
+        //step 2
+        for (int i = 0; i < postfix.length(); i++) {
+            char character = postfix.charAt(i);
+            if(Character.isDigit(character)){
+                stack.push(Integer.valueOf(Character.toString(character)));
+            }else if(pc.isOperator(String.valueOf(character))){
+                int second = stack.pull();
+                int first = stack.pull();
+                stack.push(evaluate(first, second,character));
             }
         }
 
-        for (String datum : data) {
-            if (pc.isOperator(datum)) {
-                int A = stackuwu_nia.pull();
-                int B = stackuwu_nia.pull();
-                getValue(datum, A, B);
-            }
-        }
+        result = stack.peek();
+        return result;
 
-        return stackuwu_nia.pull();
+    }
+
+    private int evaluate(int first, int second, char operator){
+        int result = 0;
+        switch (operator) {
+            case '/':
+                result = pc.division(first,second);
+                break;
+            case '*':
+                result = pc.multiplicacion(first,second);
+                break;
+            case '+':
+                result = pc.suma(first,second);
+                break;
+            case '-':
+                result = pc.resta(first, second);
+        }
+        return result;
     }
 
 }

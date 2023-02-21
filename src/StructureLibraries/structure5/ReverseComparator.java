@@ -20,6 +20,11 @@ public class ReverseComparator implements Comparator {
       return -this.base.compare(a, b);
    }
 
+   @Override
+   public int compare(Object o1, Object o2) {
+      return 0;
+   }
+
    public boolean equals(Object b) {
       if(b == null) {
          return false;

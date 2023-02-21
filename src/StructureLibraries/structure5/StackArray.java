@@ -22,13 +22,13 @@ public class StackArray extends AbstractStack implements Stack {
    }
 
    public void add(Object item) {
-      Assert.pre(!this.isFull(), "Stack is not full.");
+      Assert.pre(!this.isFull(), "StackUsingArrayList is not full.");
       ++this.top;
       this.data[this.top] = item;
    }
 
    public Object remove() {
-      Assert.pre(!this.isEmpty(), "Stack is not empty.");
+      Assert.pre(!this.isEmpty(), "StackUsingArrayList is not empty.");
       Object result = this.data[this.top];
       this.data[this.top] = null;
       --this.top;
@@ -36,7 +36,7 @@ public class StackArray extends AbstractStack implements Stack {
    }
 
    public Object get() {
-      Assert.pre(!this.isEmpty(), "Stack is not empty.");
+      Assert.pre(!this.isEmpty(), "StackUsingArrayList is not empty.");
       return this.data[this.top];
    }
 

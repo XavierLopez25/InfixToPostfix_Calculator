@@ -21,4 +21,9 @@ public class ComparableAssociation extends Association implements Comparable, ja
       s.append("<ComparableAssociation: " + this.getKey() + "=" + this.getValue() + ">");
       return s.toString();
    }
+
+   @Override
+   public int compareTo(Object o) {
+      return 0;
+   }
 }
