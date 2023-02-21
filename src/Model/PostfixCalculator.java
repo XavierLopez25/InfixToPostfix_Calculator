@@ -8,7 +8,7 @@ import java.util.List;
 public class PostfixCalculator implements IPostfixCalculator{
 
     /**
-     * Cuenta cuantos elementos hay en el Stack
+     * Cuenta cuantos elementos hay en el StackUsingArrayList
      * @param operandos
      * @return
      */
@@ -67,8 +67,17 @@ public class PostfixCalculator implements IPostfixCalculator{
      * @return
      */
     @Override
-    public boolean isOperator(String item) {
-        return item.equals("+") || item.equals("-") || item.equals("/") || item.equals("*");
+    public boolean isOperator(String character){
+        boolean response = false;
+        switch (character.charAt(0)){
+            case '/':
+            case '*':
+            case '+':
+            case '-':
+                response = true;
+        }
+
+        return response;
     }
 
     /**
@@ -78,7 +87,7 @@ public class PostfixCalculator implements IPostfixCalculator{
      */
     @Override
     public ArrayList<String> getItems(String _expresion) {
-        String[] splitInput = _expresion.split(" ");
+        String[] splitInput = _expresion.split("");
         ArrayList<String> list = new ArrayList<>(Arrays.asList(splitInput));
         return list;
     }
