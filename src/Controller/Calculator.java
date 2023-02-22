@@ -2,15 +2,27 @@ package Controller;
 
 import Model.IStack;
 import Model.PostfixCalculator;
-import Model.StackUsingArrayList;
 
 public class Calculator {
 
+
+    private static boolean instance_flag = false;
+    private static Calculator _uniqueCalculator;
+
+    private Calculator(){
+        instance_flag = true;
+    }
+
+    public static Calculator getInstance(){
+        if (!instance_flag) {
+            _uniqueCalculator = new Calculator();
+        }
+        return _uniqueCalculator;
+    }
+
     static PostfixCalculator pc = new PostfixCalculator();
 
-    /**
-     * Constructor
-     */
+
 
 
     public int postfixEvaluation(String postfix, IStack<Integer> stack){

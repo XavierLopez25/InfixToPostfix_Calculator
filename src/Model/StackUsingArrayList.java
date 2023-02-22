@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class StackUsingArrayList<T> extends AbstractStack{
+public class StackUsingArrayList<T> extends AbstractStack<T> {
     /**
      *
      */

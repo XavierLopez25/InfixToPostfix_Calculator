@@ -7,7 +7,7 @@ package Model;
  * @author MAAG
  *
  */
-public class SingleLinkedList<T> implements IList<T> {
+public class SingleLinkedList<T> extends AbstractList<T> {
 
 	private int count;
     private Node<T> start;

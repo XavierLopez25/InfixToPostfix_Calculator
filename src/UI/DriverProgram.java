@@ -2,7 +2,9 @@ package UI;
 
 import Controller.Calculator;
 import Controller.InfixToPostfix;
-
+import Controller.RW_File;
+import Model.IStack;
+import Model.StackFactory;
 import java.util.Scanner;
 
 public class DriverProgram {
@@ -11,55 +13,69 @@ public class DriverProgram {
      * @param args
      */
     public static void main(String[] args) {
-//        String postfix = ReadFile.text("path");
-
 
         Scanner sc = new Scanner(System.in);
-        InfixToPostfix iTP = new InfixToPostfix();
-        Calculator calculator = new Calculator();
+        InfixToPostfix infixToPostfix = new InfixToPostfix();
+        Calculator calculator = Calculator.getInstance();
+        RW_File rwFile = new RW_File();
 
+        String stackModel = displayMenu(sc);
+        String postfixExp;
+        String infixExp;
+        String endProgram;
+        StackFactory sF = new StackFactory();
+        IStack<Integer> stack;
 
+        stack = sF.getInstance(stackModel);
+        infixExp = rwFile.readInfixFromFile();
+        postfixExp = infixToPostfix.infixToPostfix(infixExp);
 
-        //System.out.println((calculator.postfixEvaluation(iTP.infixToPostfix(" 2 + ( ( 2 + 3 ) * 6 ) * 6"))));
+        System.out.println("\nThe Infix expression: " + infixExp);
+        System.out.println("\nThe Postfix expression converted from Infix: " + postfixExp);
+        System.out.println("\nThe result of the expression: " + postfixExp + ", is: " +calculator.postfixEvaluation(postfixExp, stack) + ".");
+        System.out.println("\nPlease write any letter to end the program. ");
 
+        endProgram = sc.nextLine();
 
     }
 
-    public void displayMenu(Scanner sca){
+    public static String displayMenu(Scanner sca){
 
-        String modelStructure = "";
-        String listType = "";
+        String modelStructure;
+        String listType;
 
-        System.out.println("Welcome to the Infix to Postfix converter and Postfix Calculator. \nPlease select one model for the Stack Data Structure you want to begin with: ");
-        System.out.println("1. Stack Using Vector.\n2.Stack Using ArrayList.\n3. Stack Using List");
+        System.out.println();
+        System.out.println(" Welcome to the Infix to Postfix converter and Postfix Calculator. \n Please select one model for the Stack Data Structure you want to begin with: ");
+        System.out.println("\t1. Stack Using Vector.\n\t2. Stack Using ArrayList.\n\t3. Stack Using List.");
 
         modelStructure = sca.nextLine();
 
         switch (modelStructure){
 
             case "1":
-                System.out.println("You choosed Stack Using Vector.");
-                break;
+                return "vector";
 
             case "2":
-                System.out.println("You choosed Stack Using ArrayList.");
+                return "arraylist";
 
             case "3":
-                System.out.println("You choosed Stack Using List. Now please select one option: ");
-                System.out.println("\t 1. SingleLinkedList.");
-                System.out.println("\t2. DoubleLinkedList.");
+                System.out.println(" You choosed Stack Using List. Now please select one option: ");
+                System.out.println("\t1. SingleLinkedList.\n\t2. DoubleLinkedList.");
 
                 listType = sca.nextLine();
 
                 switch (listType){
 
                     case "1":
-                        System.out.println("You selected Stack Using SingleLinkedList.");
+                        return "single";
 
                     case "2":
-                        System.out.println("You selected Stack Using DoubleLinkedList.");
+                        return "double";
 
                 }
         }
+
+        return "0";
+
     }
 }

@@ -1,29 +1,24 @@
 package Model;
 
-public class ListFactory {
+public class ListFactory<T> {
 
-    public IStack<Integer> getInstance(String selection){
+    public AbstractList<T> getInstance(String selection){
 
-        IStack<Integer> stack;
+        AbstractList<T> list = null;
 
-        switch (selection.toLowerCase()){
+        switch (selection.toLowerCase()) {
 
-            case "arraylist":
-                stack = new StackUsingArrayList<>();
+            case "single":
+                list = new SingleLinkedList<>();
                 break;
 
-            case "vector":
-                stack = new StackUsingVector<>();
+            case "double":
+                list = new DoubleLinkedList<>();
                 break;
-
-            default:
-                stack = null;
-                System.out.println("NO.");
-
 
         }
 
-        return stack;
+        return list;
 
     }
 

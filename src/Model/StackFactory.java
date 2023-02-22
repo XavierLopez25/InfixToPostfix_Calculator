@@ -1,0 +1,32 @@
+package Model;
+
+public class StackFactory {
+
+    public AbstractStack<Integer> getInstance(String selection){
+        AbstractStack<Integer> stack = null;
+
+        switch (selection){
+            case "arraylist":
+                stack = new StackUsingArrayList<>();
+                break;
+
+            case "vector":
+                stack = new StackUsingVector<>();
+                break;
+
+            case "single":
+                stack = new StackUsingList<>(selection);
+                break;
+
+            case "double":
+                stack = new StackUsingList<>(selection);
+                break;
+
+            default:
+                System.out.println("The entered option isn't valid.");
+                break;
+        }
+        return stack;
+    }
+
+}
