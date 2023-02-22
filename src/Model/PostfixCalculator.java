@@ -94,4 +94,10 @@ public class PostfixCalculator implements IPostfixCalculator{
         ArrayList<String> list = new ArrayList<>(Arrays.asList(splitInput));
         return list;
     }
+
 }
+
+//Decription: Código para lectura de archivo
+//Author: Sebastian Huertas, Gerson Ramirez, Xavier Lopez - Hoja de Trabajo #2
+//Date: 2023
+//URL: https://github.com/Gxrco/CalculatorPostFix

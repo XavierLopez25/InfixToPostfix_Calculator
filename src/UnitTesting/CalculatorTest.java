@@ -37,7 +37,7 @@ class CalculatorTest {
     void infixToPostfix() {
 
         InfixToPostfix iTP = new InfixToPostfix();
-        assertEquals("223+6*6*+", iTP.infixToPostfix("223+6*6*+"));
+        assertEquals("223+6*6*+", iTP.infixToPostfix(" 2 + ( ( 2 + 3 ) * 6 ) * 6"));
 
     }
 
@@ -51,7 +51,6 @@ class CalculatorTest {
         StackUsingList<Integer> suL = new StackUsingList<>("double");
 
         suAL.push(60);
-        suL.push(null);
 
         assertEquals(60, suAL.peek());
 

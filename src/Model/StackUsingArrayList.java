@@ -66,10 +66,5 @@ public class StackUsingArrayList<T> extends AbstractStack<T> {
         return myList.get(0);
     }
 
-    @Override
-    public String toString(){
-        Collections.reverse(myList);
-        return myList.toString();
-    }
 }
 

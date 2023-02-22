@@ -65,3 +65,8 @@ public interface IPostfixCalculator {
     java.util.ArrayList<String> getItems(String _expresion);
 }
 
+//Decription: Código para lectura de archivo
+//Author: Sebastian Huertas, Gerson Ramirez, Xavier Lopez - Hoja de Trabajo #2
+//Date: 2023
+//URL: https://github.com/Gxrco/CalculatorPostFix
+
