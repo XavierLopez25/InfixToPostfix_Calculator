@@ -5,15 +5,20 @@ package Model;
 
 
 /**
- * @author MAAG
+ * The type Double linked list.
  *
+ * @param <T> the type parameter
+ * @author MAAG
  */
 public class DoubleLinkedList<T> extends AbstractList<T> {
 
 	private DoubleNode<T> start;
 	private DoubleNode<T> end;
 	private int count;
-	
+
+	/**
+	 * Instantiates a new Double linked list.
+	 */
 	public DoubleLinkedList() {
 		start = null;
 		end = null;

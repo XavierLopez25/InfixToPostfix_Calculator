@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * The type Postfix calculator.
+ */
 public class PostfixCalculator implements IPostfixCalculator{
 
     /**

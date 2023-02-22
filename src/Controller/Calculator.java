@@ -3,6 +3,9 @@ package Controller;
 import Model.IStack;
 import Model.PostfixCalculator;
 
+/**
+ * The type Calculator.
+ */
 public class Calculator {
 
 
@@ -13,6 +16,11 @@ public class Calculator {
         instance_flag = true;
     }
 
+    /**
+     * Get instance calculator.
+     *
+     * @return the calculator
+     */
     public static Calculator getInstance(){
         if (!instance_flag) {
             _uniqueCalculator = new Calculator();
@@ -20,11 +28,19 @@ public class Calculator {
         return _uniqueCalculator;
     }
 
+    /**
+     * The Pc.
+     */
     static PostfixCalculator pc = new PostfixCalculator();
 
 
-
-
+    /**
+     * Postfix evaluation int.
+     *
+     * @param postfix the postfix
+     * @param stack   the stack
+     * @return the int
+     */
     public int postfixEvaluation(String postfix, IStack<Integer> stack){
         int  result = 0;
         //step 1

@@ -7,10 +7,14 @@ import Model.IStack;
 import Model.StackFactory;
 import java.util.Scanner;
 
+/**
+ * The type Driver program.
+ */
 public class DriverProgram {
     /**
+     * The entry point of application.
      *
-     * @param args
+     * @param args the input arguments
      */
     public static void main(String[] args) {
 
@@ -39,6 +43,12 @@ public class DriverProgram {
 
     }
 
+    /**
+     * Display menu string.
+     *
+     * @param sca the sca
+     * @return the string
+     */
     public static String displayMenu(Scanner sca){
 
         String modelStructure;

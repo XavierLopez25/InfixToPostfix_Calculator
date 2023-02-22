@@ -3,6 +3,11 @@ package Model;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * The type Stack using array list.
+ *
+ * @param <T> the type parameter
+ */
 public class StackUsingArrayList<T> extends AbstractStack<T> {
     /**
      *
@@ -10,7 +15,7 @@ public class StackUsingArrayList<T> extends AbstractStack<T> {
     private ArrayList<T> myList;
 
     /**
-     *Constructor de un stack
+     * Constructor de un stack
      */
     public StackUsingArrayList() {
         myList = new ArrayList<T>();

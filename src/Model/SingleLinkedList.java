@@ -4,8 +4,10 @@
 package Model;
 
 /**
- * @author MAAG
+ * The type Single linked list.
  *
+ * @param <T> the type parameter
+ * @author MAAG
  */
 public class SingleLinkedList<T> extends AbstractList<T> {
 

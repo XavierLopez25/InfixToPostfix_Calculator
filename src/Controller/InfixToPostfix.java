@@ -2,8 +2,17 @@ package Controller;
 
 import Model.StackUsingArrayList;
 
+/**
+ * The type Infix to postfix.
+ */
 public class InfixToPostfix {
 
+    /**
+     * Infix to postfix string.
+     *
+     * @param infixString the infix string
+     * @return the string
+     */
     public String infixToPostfix(String infixString){
         String postfix = "";
         StackUsingArrayList<Character> stack = new StackUsingArrayList<>();

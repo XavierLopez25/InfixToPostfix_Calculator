@@ -9,6 +9,7 @@ public class RW_File {
 
     /**
      * Método que lee String infix que contiene la expresion infix.
+     *
      * @return El String infix que contiene la expresion infix, para su uso posterior en otras funciones y clases.
      */
     public static String readInfixFromFile(){
